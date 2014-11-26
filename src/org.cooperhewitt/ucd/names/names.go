@@ -9,7 +9,9 @@ import (
 
 func Name(k string) (v string){
      h := ToHex(k)
-     return ucd.UCD[h]
+
+     v, _ = ucd.UCD[h]
+     return v
 }
 
 func ToHex(s string) (h string){
