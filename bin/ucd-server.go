@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	_ "flag"
+	"flag"
 	"fmt"
 	"net/http"
 	"org.cooperhewitt/ucd/names"
@@ -10,8 +10,8 @@ import (
 
 func string(w http.ResponseWriter, r *http.Request) {
 
-	string := r.FormValue("string")
-	rsp := names.NamesForString(string)
+	txt := r.FormValue("text")
+	rsp := names.NamesForString(txt)
 
 	js, err := json.Marshal(rsp)
 
@@ -26,15 +26,24 @@ func string(w http.ResponseWriter, r *http.Request) {
 
 func char(w http.ResponseWriter, r *http.Request) {
 
-	char := r.FormValue("char")
-	name := names.Name(char)
+	txt := r.FormValue("text")
+	name := names.Name(txt)
 	fmt.Fprintf(w, name)
 }
 
 func main() {
 
-	http.HandleFunc("/char", char)
+	host := flag.String("host", "localhost", "host")
+	port := flag.Int("port", 8080, "port")
+
+	flag.Parse()
+
+	endpoint := fmt.Sprintf("%s:%d", *host, *port)
+
+	fmt.Printf("listening on %s\n", endpoint)
+
+	http.HandleFunc("/", char)
 	http.HandleFunc("/string", string)
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(endpoint, nil)
 }

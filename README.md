@@ -46,7 +46,7 @@ The following tools are included with this repository. _Note however that you wi
 
 	$> ucd-server
 
-	$> curl 'http://localhost:8080?string=ᚓ'
+	$> curl -X GET 'http://localhost:8080/?text=ᚓ'
 	OGHAM LETTER EADHADH        
 
 ## Shout outs
