@@ -39,7 +39,7 @@ The following tools are included with this repository. _Note however that you wi
 
 ## Shout outs
 
-Many thanks to Go-friend [Richard Crowley](https://github.com/rcrowley) who is also kind and patient answering my Go-related questions.
+Many thanks to friend and Go-friend [Richard Crowley](https://github.com/rcrowley) who is also kind and patient answering my Go-related questions. Go is lovely but Go is weird.
 
 ## See also
 
