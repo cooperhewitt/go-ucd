@@ -1,13 +1,6 @@
 package ucd
 
-import (
-       "strings"
-       "fmt"
-       "unicode/utf8"
-)
-
-var (
-	lookup = map[string]string{
+var UCD = map[string]string{
 		"0000":   "<control>",
 		"0001":   "<control>",
 		"0002":   "<control>",
@@ -27277,29 +27270,4 @@ var (
 		"FFFD":   "REPLACEMENT CHARACTER",
 		"FFFFD":  "<Plane 15 Private Use, Last>",
 	}
-)
 
-func Name(k string) (v string){
-     h := ToHex(k)
-     return lookup[h]
-}
-
-func ToHex(s string) (h string){
-
-     // seriously why is it so hard to do the
-     // equivalent of python's this:     	    
-     // id = ord(char)
-     // hex = "%04X" % id
-
-     s = fmt.Sprintf("%+q", s)
-
-     s = strings.Replace(s, "\"", "", 2)
-     // fmt.Printf("s becomes '%v'\n", s)
-     // fmt.Printf("s is '%c'\n", s)
-
-     c := utf8.RuneCountInString(s)
-     
-     s = s[c-4:c]
-     s = strings.ToUpper(s)    
-     return s
-}

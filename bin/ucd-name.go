@@ -3,7 +3,7 @@ package main
 import(
 	"fmt"
 	"flag"
-	"org.cooperhewitt/ucd"
+	"org.cooperhewitt/ucd/names"
 )
 
 func main(){
@@ -11,6 +11,6 @@ func main(){
      flag.Parse()
      char := flag.Arg(0)
 
-     name := ucd.Name(char)
+     name := names.Name(char)
      fmt.Println(name)
 }
