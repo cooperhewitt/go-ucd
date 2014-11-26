@@ -1,7 +1,6 @@
 package names
 
 import (
-       "strings"
        "fmt"
        "unicode/utf8"
        "org.cooperhewitt/ucd/data"
@@ -17,8 +16,7 @@ func Name(k string) (v string){
 func ToHex(s string) (h string){
 
      rune, _ := utf8.DecodeRuneInString(s)
-     hex := fmt.Sprintf("%04x", rune)
-     hex = strings.ToUpper(hex)  
+     hex := fmt.Sprintf("%04X", rune)
 
      return hex
 }
