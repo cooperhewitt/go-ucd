@@ -1,5 +1,7 @@
 package ucd
 
+/* http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt */
+
 var UCD = map[string]string{
 	/*
 		"0000":   "<control>",
