@@ -17,22 +17,21 @@ func Name(char string) (name string){
 
 func NamesForString(s string) (n [][]string){
 
+     count := len(s)
+
+     results := make([][]string, count)
+
+     for i := range results {
+     	 results[i] = make([]string, 2)
+     }
+
      chars := strings.Split(s, "")
-     count := len(chars)
 
-     var results [4][2]string
-
-     i := 0
-
-     for _, char := range chars {
+     for idx, char := range chars {
           name := Name(char)
 	  
-	  var lookup [2]string
-	  lookup[0] = char
-	  lookup[1] = name
-
-	  results[i] = lookup
-	  i += 1
+	  results[idx][0] = char
+	  results[idx][1] = name
      }
 
      return results
