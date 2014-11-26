@@ -7,15 +7,22 @@ import(
 	"org.cooperhewitt/ucd/names"
 )
 
-func ucd (w http.ResponseWriter, r *http.Request){
+func string (w http.ResponseWriter, r *http.Request){
 
-     str := r.FormValue("string")
-     name := names.Name(str)
+     string := r.FormValue("string")
+     names := names.NamesForString(char)
+     fmt.Fprintf(w, names)
+}
+
+func char (w http.ResponseWriter, r *http.Request){
+
+     char := r.FormValue("char")
+     name := names.Name(char)
      fmt.Fprintf(w, name)
 }
 
 func main(){
     
-    http.HandleFunc("/", ucd)
+    http.HandleFunc("/char", char)
     http.ListenAndServe(":8080", nil)
 }

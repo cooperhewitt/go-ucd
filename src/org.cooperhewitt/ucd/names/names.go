@@ -2,6 +2,7 @@ package names
 
 import (
        "fmt"
+       "strings"
        "unicode/utf8"
        "org.cooperhewitt/ucd/data"
 )
@@ -14,17 +15,28 @@ func Name(char string) (name string){
      return name
 }
 
-/*
-func NamesForString(s string) (n array){
+func NamesForString(s string) (n [][]string){
 
-     chars := strings.Split(str, "")
+     chars := strings.Split(s, "")
+     count := len(chars)
+
+     var results [4][2]string
+
+     i := 0
 
      for _, char := range chars {
-          name := names.Name(char)
+          name := Name(char)
 	  
+	  var lookup [2]string
+	  lookup[0] = char
+	  lookup[1] = name
+
+	  results[i] = lookup
+	  i += 1
      }
+
+     return results
 }
-*/
 
 func CharToHex(char string) (hex string){
 
