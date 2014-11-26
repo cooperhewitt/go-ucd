@@ -1,6 +1,7 @@
 package main
 
 import(
+	"strings"
 	"fmt"
 	"flag"
 	"org.cooperhewitt/ucd/names"
@@ -9,8 +10,14 @@ import(
 func main(){
 
      flag.Parse()
-     char := flag.Arg(0)
 
-     name := names.Name(char)
-     fmt.Println(name)
+     args:= flag.Args()
+     str := strings.Join(args, " ")
+
+     chars := strings.Split(str, "")
+
+     for _, char := range chars {
+          name := names.Name(char)
+     	  fmt.Println(name)
+     }	  
 }

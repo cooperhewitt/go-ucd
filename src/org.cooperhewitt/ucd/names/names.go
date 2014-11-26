@@ -13,6 +13,18 @@ func Name(k string) (v string){
      return v
 }
 
+/*
+func NamesForString(s string) (n array){
+
+     chars := strings.Split(str, "")
+
+     for _, char := range chars {
+          name := names.Name(char)
+	  
+     }
+}
+*/
+
 func ToHex(s string) (h string){
 
      rune, _ := utf8.DecodeRuneInString(s)

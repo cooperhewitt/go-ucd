@@ -30,6 +30,18 @@ The following tools are included with this repository. _Note however that you wi
 	$> ucd A
 	LATIN CAPITAL LETTER A
 
+	$> ucd THIS → WAY
+	LATIN CAPITAL LETTER T
+	LATIN CAPITAL LETTER H
+	LATIN CAPITAL LETTER I
+	LATIN CAPITAL LETTER S
+	SPACE
+	RIGHTWARDS ARROW
+	SPACE
+	LATIN CAPITAL LETTER W
+	LATIN CAPITAL LETTER A
+	LATIN CAPITAL LETTER Y
+
 ### ucd-server
 
 	$> ucd-server
