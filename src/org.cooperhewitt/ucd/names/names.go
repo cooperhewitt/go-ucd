@@ -6,11 +6,12 @@ import (
        "org.cooperhewitt/ucd/data"
 )
 
-func Name(k string) (v string){
-     h := ToHex(k)
+func Name(char string) (name string){
 
-     v, _ = ucd.UCD[h]
-     return v
+     hex := CharToHex(char)
+
+     name, _ = ucd.UCD[hex]
+     return name
 }
 
 /*
@@ -25,10 +26,10 @@ func NamesForString(s string) (n array){
 }
 */
 
-func ToHex(s string) (h string){
+func CharToHex(char string) (hex string){
 
-     rune, _ := utf8.DecodeRuneInString(s)
-     hex := fmt.Sprintf("%04X", rune)
+     rune, _ := utf8.DecodeRuneInString(char)
+     hex = fmt.Sprintf("%04X", rune)
 
      return hex
 }
