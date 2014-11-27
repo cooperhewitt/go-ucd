@@ -42,8 +42,6 @@ The following tools are included with this repository. _Note however that you wi
 	LATIN CAPITAL LETTER A
 	LATIN CAPITAL LETTER Y
 
-#### Unicode Han Data
-
 `ucd` supports the Unicode Han Data character set, or at least endeavours to. There may still be bugs.
 
 	$> ucd 䍕
