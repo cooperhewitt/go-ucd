@@ -44,10 +44,14 @@ The following tools are included with this repository. _Note however that you wi
 
 ### ucd-server
 
+#### Usage
+
 	$> ucd-server --help
 	Usage of ./ucd-server:
 	  -host="localhost": host
 	  -port=8080: port
+
+#### as JSON
 
 	$> curl -X GET -s 'http://localhost:8080/?text=♕%20HAT' | python -mjson.tool
 	{
@@ -79,6 +83,8 @@ The following tools are included with this repository. _Note however that you wi
 	        }
 	    ]
 	}
+
+#### As plain text
 
 	$> curl -H 'Accept: text/plain' -s 'http://localhost:8080/?text=♕%20HAT%20WITH%20😸'
 	WHITE CHESS QUEEN
