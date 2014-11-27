@@ -2,7 +2,8 @@ package names
 
 import (
 	"fmt"
-	"org.cooperhewitt/ucd/data"
+	"org.cooperhewitt/ucd/data/unicodedata"
+	"org.cooperhewitt/ucd/data/unihan"
 	"strings"
 	"unicode/utf8"
 )
@@ -24,9 +25,14 @@ func (u UCDName) String() string {
 
 func Name(char string) (f UCDName) {
 
-	hex := CharToHex(char)
+	hex := CharToHex(char, "unicodedata")
+	name, _ := unicodedata.UCD[hex]
 
-	name, _ := ucd.UCD[hex]
+	if name == "" {
+	   hex := CharToHex(char, "unihan")
+	   name, _ = unihan.UCDHan[hex]
+	}
+
 	return UCDName{char, hex, name}
 }
 
@@ -45,10 +51,16 @@ func NamesForString(s string) (n []UCDName) {
 	return results
 }
 
-func CharToHex(char string) (hex string) {
+func CharToHex(char string, table string) (hex string) {
 
 	rune, _ := utf8.DecodeRuneInString(char)
-	hex = fmt.Sprintf("%04X", rune)
 
+	hex_fmt := "%04X"
+
+	if table == "unihan" {
+	   hex_fmt = "%05X"
+	}	   
+	
+	hex = fmt.Sprintf(hex_fmt, rune)
 	return hex
 }

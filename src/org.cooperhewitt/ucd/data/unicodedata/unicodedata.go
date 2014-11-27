@@ -1,4 +1,4 @@
-package ucd
+package unicodedata
 
 /* http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt */
 
