@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"strings"
 	"net/http"
 	"org.cooperhewitt/ucd/names"
+	"strings"
 )
 
 type UCDResponse struct {
-     Chars []names.UCDName
+	Chars []names.UCDName
 }
 
 func string(w http.ResponseWriter, r *http.Request) {
@@ -40,23 +40,23 @@ func char(w http.ResponseWriter, r *http.Request) {
 
 func send(w http.ResponseWriter, r *http.Request, rsp UCDResponse) {
 
-     accept := r.Header.Get("Accept")
+	accept := r.Header.Get("Accept")
 
-     if accept == "text/plain" {
-	send_text(w, rsp)
-     } else {	
-     	  send_json(w, rsp)
-     }	  
+	if accept == "text/plain" {
+		send_text(w, rsp)
+	} else {
+		send_json(w, rsp)
+	}
 
 }
 
 func send_text(w http.ResponseWriter, rsp UCDResponse) {
 
-     w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Content-Type", "text/plain")
 
-     for _, char := range rsp.Chars {
-     	 fmt.Fprintln(w ,char.String())
-     }     
+	for _, char := range rsp.Chars {
+		fmt.Fprintln(w, char.String())
+	}
 }
 
 func send_json(w http.ResponseWriter, rsp UCDResponse) {
