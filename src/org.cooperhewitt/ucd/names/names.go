@@ -18,19 +18,20 @@ func (u UCDName) String() string {
 	return u.Name
 }
 
-/*
-   things that don't work because https://github.com/cooperhewitt/go-ucd/issues/1
-   http://www.fileformat.info/info/unicode/char/4355/index.htm
-*/
-
 func Name(char string) (f UCDName) {
 
-	hex := CharToHex(char, "unicodedata")
-	name, _ := unicodedata.UCD[hex]
+	rune, _ := utf8.DecodeRuneInString(char)
+	hex := fmt.Sprintf("%04X", rune)
 
-	if name == "" {
-	   hex := CharToHex(char, "unihan")
-	   name, _ = unihan.UCDHan[hex]
+	name, ok := unicodedata.UCD[hex]
+
+	if ok == false {
+	   name, ok = unihan.UCDHan[hex]
+	}	   
+
+	if ok == false {
+	   hex = fmt.Sprintf("%05X", rune)
+	   name, ok = unihan.UCDHan[hex]
 	}
 
 	return UCDName{char, hex, name}
@@ -49,18 +50,4 @@ func NamesForString(s string) (n []UCDName) {
 	}
 
 	return results
-}
-
-func CharToHex(char string, table string) (hex string) {
-
-	rune, _ := utf8.DecodeRuneInString(char)
-
-	hex_fmt := "%04X"
-
-	if table == "unihan" {
-	   hex_fmt = "%05X"
-	}	   
-	
-	hex = fmt.Sprintf(hex_fmt, rune)
-	return hex
 }

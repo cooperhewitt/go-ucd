@@ -42,6 +42,11 @@ The following tools are included with this repository. _Note however that you wi
 	LATIN CAPITAL LETTER A
 	LATIN CAPITAL LETTER Y
 
+`ucd` supports the Unicode Han Data character set, or at least endeavours to. There may still be bugs.
+
+	$> ucd 
+	NET; WEB; NETWORK, NET FOR CATCHING RABBIT
+
 ### ucd-server
 
 #### Usage
@@ -99,10 +104,6 @@ The following tools are included with this repository. _Note however that you wi
 	LATIN CAPITAL LETTER H
 	SPACE
 	GRINNING CAT FACE WITH SMILING EYES
-
-## Known knowns
-
-* Things like the `Unicode Han Data` character set are not supported because they are not included in the Unicode Consortium's default [UnicodeData.txt](http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt) file. There is an [open ticket](https://github.com/cooperhewitt/go-ucd/issues/1) to fix that.
 
 ## Shout outs
 
