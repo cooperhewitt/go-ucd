@@ -12,6 +12,10 @@ type UCDName struct {
      Name string
 }
 
+func (u UCDName) String() string {
+	 return u.Name
+}
+
 func Name(char string) (f UCDName){
 
      hex := CharToHex(char)
