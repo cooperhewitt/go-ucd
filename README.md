@@ -80,7 +80,7 @@ The following tools are included with this repository. _Note however that you wi
 	    ]
 	}
 
-	$> curl -H 'Accept: text/plain' -s 'http://localhost:8080/?text=♕%20HAT%20WITH%20'
+	$> curl -H 'Accept: text/plain' -s 'http://localhost:8080/?text=♕%20HAT%20WITH%20😸'
 	WHITE CHESS QUEEN
 	SPACE
 	LATIN CAPITAL LETTER H
