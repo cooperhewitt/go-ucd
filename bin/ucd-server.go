@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"strings"
 	"net/http"
 	"org.cooperhewitt/ucd/names"
 )
@@ -15,12 +16,15 @@ type UCDResponse struct {
 func string(w http.ResponseWriter, r *http.Request) {
 
 	txt := r.FormValue("text")
+	txt = strings.Trim(txt, " ")
+
 	chars := names.NamesForString(txt)
 
 	rsp := UCDResponse{chars}
 	send(w, r, rsp)
 }
 
+/*
 func char(w http.ResponseWriter, r *http.Request) {
 
 	txt := r.FormValue("text")
@@ -32,22 +36,28 @@ func char(w http.ResponseWriter, r *http.Request) {
 	rsp := UCDResponse{chars}
 	send(w, r, rsp)
 }
+*/
 
 func send(w http.ResponseWriter, r *http.Request, rsp UCDResponse) {
 
-	send_json(w, rsp)
+     accept := r.Header.Get("Accept")
+
+     if accept == "text/plain" {
+	send_text(w, rsp)
+     } else {	
+     	  send_json(w, rsp)
+     }	  
+
 }
 
-/*
 func send_text(w http.ResponseWriter, rsp UCDResponse) {
 
-     w.Header().Set("Content-Type", "application/json")
+     w.Header().Set("Content-Type", "text/plain")
 
      for _, char := range rsp.Chars {
-     	 fmt.Fprintf(w ,char)
+     	 fmt.Fprintln(w ,char.String())
      }     
 }
-*/
 
 func send_json(w http.ResponseWriter, rsp UCDResponse) {
 
@@ -73,8 +83,6 @@ func main() {
 
 	fmt.Printf("listening on %s\n", endpoint)
 
-	http.HandleFunc("/", char)
-	http.HandleFunc("/string", string)
-
+	http.HandleFunc("/", string)
 	http.ListenAndServe(endpoint, nil)
 }

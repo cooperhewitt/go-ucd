@@ -18,6 +18,6 @@ func main() {
 
 	for _, char := range chars {
 		ucd := names.Name(char)
-		fmt.Println(ucd.Char)
+		fmt.Println(ucd)
 	}
 }

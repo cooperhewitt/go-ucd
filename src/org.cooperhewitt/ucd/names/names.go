@@ -9,6 +9,7 @@ import (
 
 type UCDName struct {
      Char string
+     Hex string
      Name string
 }
 
@@ -16,21 +17,25 @@ func (u UCDName) String() string {
 	 return u.Name
 }
 
+/* 
+   things that don't work because... ?
+   http://www.fileformat.info/info/unicode/char/4355/index.htm
+*/
+
 func Name(char string) (f UCDName){
 
      hex := CharToHex(char)
 
      name, _ := ucd.UCD[hex]
-     return UCDName{char, name}
+     return UCDName{char, hex, name}
 }
 
 func NamesForString(s string) (n []UCDName){
 
-     count := len(s)
+     chars := strings.Split(s, "")
+     count := len(chars)
 
      results := make([]UCDName, count)
-
-     chars := strings.Split(s, "")
 
      for idx, char := range chars {
           name := Name(char)	 
