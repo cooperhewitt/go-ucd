@@ -26,12 +26,12 @@ func Name(char string) (f UCDName) {
 	name, ok := unicodedata.UCD[hex]
 
 	if ok == false {
-	   name, ok = unihan.UCDHan[hex]
-	}	   
+		name, ok = unihan.UCDHan[hex]
+	}
 
 	if ok == false {
-	   hex = fmt.Sprintf("%05X", rune)
-	   name, ok = unihan.UCDHan[hex]
+		hex = fmt.Sprintf("%05X", rune)
+		name, ok = unihan.UCDHan[hex]
 	}
 
 	return UCDName{char, hex, name}
