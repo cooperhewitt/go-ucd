@@ -18,7 +18,7 @@ func (u UCDName) String() string {
 }
 
 /*
-   things that don't work because... ?
+   things that don't work because https://github.com/cooperhewitt/go-ucd/issues/1
    http://www.fileformat.info/info/unicode/char/4355/index.htm
 */
 
