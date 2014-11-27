@@ -102,7 +102,7 @@ The following tools are included with this repository. _Note however that you wi
 
 ## Known knowns
 
-* Things like the `Unicode Han Data` character set are not supported because they are not included in the Unicode Consortium's default [UnicodeData.txt](http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt) file.
+* Things like the `Unicode Han Data` character set are not supported because they are not included in the Unicode Consortium's default [UnicodeData.txt](http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt) file. There is an [open ticket](https://github.com/cooperhewitt/go-ucd/issues/1) to fix that.
 
 ## Shout outs
 
