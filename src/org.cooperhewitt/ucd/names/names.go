@@ -7,31 +7,30 @@ import (
        "org.cooperhewitt/ucd/data"
 )
 
-func Name(char string) (name string){
+type UCDName struct {
+     Char string
+     Name string
+}
+
+func Name(char string) (f UCDName){
 
      hex := CharToHex(char)
 
-     name, _ = ucd.UCD[hex]
-     return name
+     name, _ := ucd.UCD[hex]
+     return UCDName{char, name}
 }
 
-func NamesForString(s string) (n [][]string){
+func NamesForString(s string) (n []UCDName){
 
      count := len(s)
 
-     results := make([][]string, count)
-
-     for i := range results {
-     	 results[i] = make([]string, 2)
-     }
+     results := make([]UCDName, count)
 
      chars := strings.Split(s, "")
 
      for idx, char := range chars {
-          name := Name(char)
-	  
-	  results[idx][0] = char
-	  results[idx][1] = name
+          name := Name(char)	 
+	  results[idx] = name
      }
 
      return results

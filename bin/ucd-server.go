@@ -27,8 +27,8 @@ func string(w http.ResponseWriter, r *http.Request) {
 func char(w http.ResponseWriter, r *http.Request) {
 
 	txt := r.FormValue("text")
-	name := names.Name(txt)
-	fmt.Fprintf(w, name)
+	ucd := names.Name(txt)
+	fmt.Fprintf(w, ucd.Name)
 }
 
 func main() {

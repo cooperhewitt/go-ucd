@@ -17,7 +17,7 @@ func main() {
 	chars := strings.Split(str, "")
 
 	for _, char := range chars {
-		name := names.Name(char)
-		fmt.Println(name)
+		ucd := names.Name(char)
+		fmt.Println(ucd.Name)
 	}
 }
