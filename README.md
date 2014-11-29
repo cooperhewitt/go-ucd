@@ -111,5 +111,4 @@ Many thanks to friend and Go-friend [Richard Crowley](https://github.com/rcrowle
 
 ## See also
 
-* https://github.com/cooperhewitt/plumbing-ucd-server
 * http://unicode.org/Public/UCD/latest/ucd/
