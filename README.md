@@ -23,7 +23,7 @@ package main
 
 ## bin
 
-The following tools are included with this repository. _Note however that you will need to `go build` them yourself._
+The following tools are included with this repository. _Note however that you will need to [compile them](https://golang.org/cmd/go/#hdr-Compile_and_run_Go_program) yourself._
 
 ### ucd
 
