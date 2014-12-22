@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
-UCD_USER=www-data
-UCD_DAEMON=/usr/local/go-ucd/bin/ucd-server
-UCD_PORT=8080
+UCD_USER=YOUR_UCD_SERVER_USER
+UCD_DAEMON=YOUR_UCD_SERVER_PATH
+UCD_PORT=YOUR_UCD_SERVER_PORT
 
 UCD_ARGS="--port ${UCD_PORT}"
 
@@ -18,8 +18,8 @@ fi
 case $1 in
     debug)
 
-        echo "Starting ucd in debug mode w/ options: ${UCD_ARGS} --verbose"
-        exec sudo -u $UCD_USER $UCD_DAEMON $UCD_ARGS --verbose
+        echo "Starting ucd in debug mode w/ options: ${UCD_ARGS}"
+        exec sudo -u $UCD_USER $UCD_DAEMON $UCD_ARGS
         ;;
     start)
 
