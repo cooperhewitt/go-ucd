@@ -105,6 +105,10 @@ The following tools are included with this repository. _Note however that you wi
 	SPACE
 	GRINNING CAT FACE WITH SMILING EYES
 
+## Versions
+
+This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip` files dated 2014-03-10 and 2014-06-05 respectively. Both are available from http://unicode.org/Public/UCD/latest/ucd/.
+
 ## Shout outs
 
 Many thanks to friend and Go-friend [Richard Crowley](https://github.com/rcrowley) who is always kind and patient answering my Go-related questions. Go is lovely but Go is weird.
