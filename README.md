@@ -117,3 +117,4 @@ Many thanks to friend and Go-friend [Richard Crowley](https://github.com/rcrowle
 
 * http://unicode.org/Public/UCD/latest/ucd/
 * http://www.washingtonpost.com/news/the-intersect/wp/2015/02/23/the-surprisingly-complex-reason-you-never-see-emoji-urls/
+* https://modelviewculture.com/pieces/i-can-text-you-a-pile-of-poo-but-i-cant-write-my-name
