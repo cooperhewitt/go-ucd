@@ -1,3 +1,5 @@
 *~
 bin/ucd
 bin/ucd-server
+bin/ucd-compile-unicodedata
+bin/ucd-compile-unihan
