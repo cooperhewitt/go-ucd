@@ -1,12 +1,15 @@
 package main
 
 import (
-	_ "archive/zip"
+	"archive/zip"
+	"bufio"
+	"bytes"
 	_ "flag"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
-	_ "strings"
+	"strings"
 	"time"
 )
 
@@ -16,11 +19,16 @@ func main() {
 
 	unihan_data := "http://unicode.org/Public/UCD/latest/ucd/Unihan.zip"
 
-	// extract: Unihan_Readings.txt
-	// look for: U+F9B7	kDefinition	sweet wine; sweet spring
-
 	rsp, err := http.Get(unihan_data)
 	defer rsp.Body.Close()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	body, err := ioutil.ReadAll(rsp.Body)
+
+	reader, err := zip.NewReader(bytes.NewReader(body), rsp.ContentLength)
 
 	if err != nil {
 		log.Fatal(err)
@@ -35,5 +43,58 @@ func main() {
 
 	fmt.Printf("%s\n", "var UCDHan = map[string]string{")
 
+	for _, zf := range reader.File {
+		// log.Printf(zf.Name)
+
+		if zf.Name != "Unihan_Readings.txt" {
+			continue
+		}
+
+		src, err := zf.Open()
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		defer src.Close()
+
+		// sudo break here and move all this stuff outside
+		// of the for loop... (20150709/straup)
+
+		scanner := bufio.NewScanner(src)
+
+		for scanner.Scan() {
+
+			ln := scanner.Text()
+
+			if strings.HasPrefix(ln, "#") {
+				continue
+			}
+
+			parts := strings.Split(ln, "\t")
+
+			if len(parts) != 3 {
+				continue
+			}
+
+			if parts[1] != "kDefinition" {
+				continue
+			}
+
+			code := parts[0]
+			desc := parts[2]
+
+			code = strings.Replace(code, "U+", "", 1)
+			desc = strings.ToUpper(desc)
+
+			fmt.Printf("\t\t\"%s\":\t\"%s\",\n", code, desc)
+		}
+
+		// see note above
+
+		break
+	}
+
 	fmt.Printf("%s\n", "}")
+
 }
