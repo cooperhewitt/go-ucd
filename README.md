@@ -107,10 +107,24 @@ The following tools are included with this repository. _Note however that you wi
 
 ## Versions
 
+`go-ucd` supports Unicode 8.0 as of July 09, 2015.
+
 This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
 http://unicode.org/Public/UCD/latest/ucd/. You can see the dates that each was
 last compiled in to the source code for `ucd` at the top of each source file in
 [the data directory](https://github.com/cooperhewitt/go-ucd/tree/master/src/org.cooperhewitt/ucd/data).
+
+If the Unicode consortium releases newer data files and you want or need to
+updated your version of `go-ucd` before we do you do so manually by using the
+`ucd-build-unicodedata` and `ucd-build-unihan` tools included in the [bin
+directory](https://github.com/cooperhewitt/go-ucd/tree/master/bin). For example:
+
+```
+go run ./bin/ucd-build-unicodedata.go > ./src/org.cooperhewitt/ucd/data/unicodedata/unicodedata.go
+go run ./bin/ucd-build-unihan.go > ./src/org.cooperhewitt/ucd/data/unihan/unihan.go
+```
+
+_Note: You will need to recompile your `ucd` and `ucd-server` binaries manually._
 
 ## Shout outs
 
