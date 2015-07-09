@@ -107,7 +107,10 @@ The following tools are included with this repository. _Note however that you wi
 
 ## Versions
 
-This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip` files dated 2014-03-10 and 2014-06-05 respectively. Both are available from http://unicode.org/Public/UCD/latest/ucd/.
+This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
+http://unicode.org/Public/UCD/latest/ucd/. You can see the dates that each was
+last compiled in to the source code for `ucd` at the top of each source file in
+[the data directory](https://github.com/cooperhewitt/go-ucd/tree/master/src/org.cooperhewitt/ucd/data).
 
 ## Shout outs
 
