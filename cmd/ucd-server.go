@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	ucd "github.com/cooperhewitt/go-ucd"
 	"net/http"
-	"org.cooperhewitt/ucd/names"
 	"strings"
 )
 
 type UCDResponse struct {
-	Chars []names.UCDName
+	Chars []ucd.UCDName
 }
 
 func string(w http.ResponseWriter, r *http.Request) {
@@ -18,7 +18,7 @@ func string(w http.ResponseWriter, r *http.Request) {
 	txt := r.FormValue("text")
 	txt = strings.Trim(txt, " ")
 
-	chars := names.NamesForString(txt)
+	chars := ucd.NamesForString(txt)
 
 	rsp := UCDResponse{chars}
 	send(w, r, rsp)
@@ -28,9 +28,9 @@ func string(w http.ResponseWriter, r *http.Request) {
 func char(w http.ResponseWriter, r *http.Request) {
 
 	txt := r.FormValue("text")
-	char := names.Name(txt)
+	char := ucd.Name(txt)
 
-	chars := make([]names.UCDName, 1)
+	chars := make([]ucd.UCDName, 1)
 	chars[0] = char
 
 	rsp := UCDResponse{chars}

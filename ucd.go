@@ -1,9 +1,9 @@
-package names
+package ucd
 
 import (
 	"fmt"
-	"org.cooperhewitt/ucd/data/unicodedata"
-	"org.cooperhewitt/ucd/data/unihan"
+	unicodedata "github.com/cooperhewitt/go-ucd/unicodedata"
+	unihan "github.com/cooperhewitt/go-ucd/unihan"
 	"strings"
 	"unicode/utf8"
 )

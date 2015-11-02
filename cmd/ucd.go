@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"org.cooperhewitt/ucd/names"
+	ucd "github.com/cooperhewitt/go-ucd"
 	"strings"
 )
 
@@ -17,7 +17,7 @@ func main() {
 	chars := strings.Split(str, "")
 
 	for _, char := range chars {
-		ucd := names.Name(char)
-		fmt.Println(ucd)
+		n := ucd.Name(char)
+		fmt.Println(n)
 	}
 }
