@@ -15,9 +15,9 @@ fmt:
 	go fmt unihan/*.go
 	go fmt cmd/*.go
 
-data:
-	go run cmd/ucd-build-unicodedata.go > src/org.cooperhewitt/ucd/unicodedata.go
-	go run cmd/ucd-build-unihan.go > src/org.cooperhewitt/ucd/unihan.go
+data: 	
+	go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
+	go run cmd/ucd-build-unihan.go > unihan/unihan.go
 
 build:	fmt self
 	go build -o bin/ucd cmd/ucd.go
