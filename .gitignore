@@ -1,5 +1,3 @@
 *~
-bin/ucd
-bin/ucd-server
-bin/ucd-build-unicodedata
-bin/ucd-build-unihan
+pkg
+src
