@@ -4,7 +4,7 @@ Go libraries and utilities for working with Unicode character data.
 
 ## Example
 
-package main
+	package main
 
 	import(
 		"fmt"
