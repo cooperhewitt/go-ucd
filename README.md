@@ -9,7 +9,7 @@ Go libraries and utilities for working with Unicode character data.
 	import(
 		"fmt"
 		"flag"
-		"org.cooperhewitt/ucd/names"
+		ucd "github.com/cooperhewitt/go-ucd"
 	)
 
 	func main(){
@@ -17,17 +17,24 @@ Go libraries and utilities for working with Unicode character data.
 	     flag.Parse()
 	     char := flag.Arg(0)
 
-	     name := names.Name(char)
+	     name := ucd.Name(char)
 	     fmt.Println(name)
 	}
 
-## bin
+## Tools
 
-The following tools are included with this repository. _Note however that you will need to [compile them](https://golang.org/cmd/go/#hdr-Compile_and_run_Go_program) yourself._
+The following tools are included in the `cmd` directory. Note however that you will need to [compile them](https://golang.org/cmd/go/#hdr-Compile_and_run_Go_program) yourself. You can do this (and all the steps in-between using the handy [Makefile](blob/master/Makefile) and the `build` target included in this repository. Like this:
+
+```
+$> export GOPATH=`pwd`
+$> make build
+```
+
+This will build the `ucd` and `ucd-server` applications and place them in the `bin` directory.
 
 ### ucd
 
-	$> ucd A
+	$> bin/ucd A
 	LATIN CAPITAL LETTER A
 
 	$> ucd THIS → WAY
@@ -44,14 +51,14 @@ The following tools are included with this repository. _Note however that you wi
 
 `ucd` supports the Unicode Han Data character set, or at least endeavours to. There may still be bugs.
 
-	$> ucd 䍕
+	$> bin/ucd 䍕
 	NET; WEB; NETWORK, NET FOR CATCHING RABBIT
 
 ### ucd-server
 
 #### Usage
 
-	$> ucd-server --help
+	$> bin/ucd-server --help
 	Usage of ./ucd-server:
 	  -host="localhost": host
 	  -port=8080: port
@@ -120,8 +127,8 @@ updated your version of `go-ucd` before we do you do so manually by using the
 directory](https://github.com/cooperhewitt/go-ucd/tree/master/bin). For example:
 
 ```
-go run ./bin/ucd-build-unicodedata.go > ./src/org.cooperhewitt/ucd/data/unicodedata/unicodedata.go
-go run ./bin/ucd-build-unihan.go > ./src/org.cooperhewitt/ucd/data/unihan/unihan.go
+go run ./cmd/ucd-build-unicodedata.go > ./unicodedata/unicodedata.go
+go run ./cmd/ucd-build-unihan.go > ./unihan/unihan.go
 ```
 
 _Note: You will need to recompile your `ucd` and `ucd-server` binaries manually._
