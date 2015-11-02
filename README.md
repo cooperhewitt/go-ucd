@@ -23,7 +23,7 @@ Go libraries and utilities for working with Unicode character data.
 
 ## Tools
 
-The following tools are included in the `cmd` directory. Note however that you will need to [compile them](https://golang.org/cmd/go/#hdr-Compile_and_run_Go_program) yourself. You can do this (and all the steps in-between using the handy [Makefile](blob/master/Makefile) and the `build` target included in this repository. Like this:
+The following tools are included in the `cmd` directory. Note however that you will need to [compile them](https://golang.org/cmd/go/#hdr-Compile_and_run_Go_program) yourself. You can do this (and all the steps in-between using the handy [Makefile](Makefile) and the `build` target included in this repository. Like this:
 
 ```
 $> export GOPATH=`pwd`
