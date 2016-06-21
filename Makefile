@@ -1,3 +1,6 @@
+CWD=$(shell pwd)
+GOPATH := $(CWD)/vendor:$(CWD)
+
 prep:
 	if test -d pkg; then rm -rf pkg; fi
 
@@ -16,9 +19,9 @@ fmt:
 	go fmt cmd/*.go
 
 data: 	
-	go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
-	go run cmd/ucd-build-unihan.go > unihan/unihan.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go > unihan/unihan.go
 
 build:	fmt self
-	go build -o bin/ucd cmd/ucd.go
-	go build -o bin/ucd-server cmd/ucd-server.go
+	@GOPATH=$(GOPATH) go build -o bin/ucd cmd/ucd.go
+	@GOPATH=$(GOPATH) go build -o bin/ucd-server cmd/ucd-server.go
