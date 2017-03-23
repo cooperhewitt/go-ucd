@@ -15,7 +15,7 @@ import (
 
 func main() {
 
-	unihan_data := flag.String("data", "http://unicode.org/Public/UCD/latest/ucd/Unihan.zip", "The URL of your Unicode source data")
+	unihan_data := flag.String("data", "http://unicode.org/Public/UCD/latest/ucd/Unihan.zip", "The URL of your Unihan source data")
 
 	flag.Parse()
 
