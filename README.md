@@ -72,10 +72,9 @@ To install as an init.d script, copy the example provided, replace the values of
 
 If using [cooperhewitt-vagrant](https://github.com/cooperhewitt/cooperhewitt-vagrant) you can use these values:
 
-  ``bash
-  UCD_USER=www-data
-  UCD_DAEMON=/vagrant/go-ucd/bin/ucd-server
-  UCD_PORT=3456
+        UCD_USER=www-data
+        UCD_DAEMON=/vagrant/go-ucd/bin/ucd-server
+        UCD_PORT=3456
 
 
 #### as JSON
