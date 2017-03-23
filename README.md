@@ -70,7 +70,7 @@ To install as an init.d script, copy the example provided, replace the values of
         $> sudo cp init.d/ucd-server.sh.example /etc/init.d/ucd-server.sh
         $> sudo service ucd-server start
 
-If using [cooperhewitt-vagrant](https://github.com/cooperhewitt/cooperhewitt-vagrant) you can use these values:
+If using [cooperhewitt-vagrant](https://github.com/cooperhewitt/cooperhewitt-vagrant), and assuming you cloned this repository and compiled from `/vagrant/go-ucd`, you can use these values:
 
         UCD_USER=www-data
         UCD_DAEMON=/vagrant/go-ucd/bin/ucd-server
