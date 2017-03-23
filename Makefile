@@ -19,8 +19,8 @@ fmt:
 	go fmt cmd/*.go
 
 data: 	
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go > unihan/unihan.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go -data http://www.unicode.org/Public/10.0.0/ucd/UnicodeData-10.0.0d5.txt > unicodedata/unicodedata.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go -data http://www.unicode.org/Public/10.0.0/ucd/Unihan-10.0.0d2.zip > unihan/unihan.go
 
 build:	fmt self
 	@GOPATH=$(GOPATH) go build -o bin/ucd cmd/ucd.go
