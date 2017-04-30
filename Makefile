@@ -11,6 +11,20 @@ self:	prep
 	cp ucd.go src/github.com/cooperhewitt/go-ucd/
 	cp unicodedata/unicodedata.go src/github.com/cooperhewitt/go-ucd/unicodedata/
 	cp unihan/unihan.go src/github.com/cooperhewitt/go-ucd/unihan/
+	cp -r vendor/src/* src/
+
+rmdeps:
+	if test -d src; then rm -rf src; fi 
+
+deps:	rmdeps
+	@GOPATH=$(GOPATH) go get -u "github.com/tidwall/pretty"
+
+vendor-deps: deps
+	if test ! -d vendor; then mkdir vendor; fi
+	if test -d vendor/src; then rm -rf vendor/src; fi
+	cp -r src vendor/src
+	find vendor -name '.git' -print -type d -exec rm -rf {} +
+	rm -rf src
 
 fmt:
 	go fmt *.go
@@ -22,6 +36,9 @@ data:
 	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
 	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go > unihan/unihan.go
 
-build:	fmt self
+build:	bin
+
+bin:	fmt self
 	@GOPATH=$(GOPATH) go build -o bin/ucd cmd/ucd.go
+	@GOPATH=$(GOPATH) go build -o bin/ucd-dump cmd/ucd-dump.go
 	@GOPATH=$(GOPATH) go build -o bin/ucd-server cmd/ucd-server.go
