@@ -114,7 +114,7 @@ This will build the `ucd` and `ucd-server` applications and place them in the `b
 
 ## Versions
 
-`go-ucd` supports Unicode 9.0 as of June 21, 2016.
+`go-ucd` supports Unicode 10.0 as of June 18, 2017.
 
 This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
 http://unicode.org/Public/UCD/latest/ucd/. You can see the dates that each was
