@@ -1,5 +1,5 @@
 CWD=$(shell pwd)
-GOPATH := $(CWD)/vendor:$(CWD)
+GOPATH := $(CWD)
 
 prep:
 	if test -d pkg; then rm -rf pkg; fi
@@ -11,7 +11,7 @@ self:	prep
 	cp ucd.go src/github.com/cooperhewitt/go-ucd/
 	cp unicodedata/unicodedata.go src/github.com/cooperhewitt/go-ucd/unicodedata/
 	cp unihan/unihan.go src/github.com/cooperhewitt/go-ucd/unihan/
-	cp -r vendor/src/* src/
+	cp -r vendor/* src/
 
 rmdeps:
 	if test -d src; then rm -rf src; fi 
@@ -19,10 +19,9 @@ rmdeps:
 deps:	rmdeps
 	@GOPATH=$(GOPATH) go get -u "github.com/tidwall/pretty"
 
-vendor-deps: deps
-	if test ! -d vendor; then mkdir vendor; fi
-	if test -d vendor/src; then rm -rf vendor/src; fi
-	cp -r src vendor/src
+vendor-deps: rmdeps deps
+	if test -d vendor; then rm -rf vendor; fi
+	cp -r src vendor
 	find vendor -name '.git' -print -type d -exec rm -rf {} +
 	rm -rf src
 
