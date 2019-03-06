@@ -128,7 +128,7 @@ If using [cooperhewitt-vagrant](https://github.com/cooperhewitt/cooperhewitt-vag
 
 ## Versions
 
-`go-ucd` supports Unicode 11.0 as of June 21, 2018.
+`go-ucd` supports Unicode 12.0 as of March 03, 2019.
 
 This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
 http://unicode.org/Public/UCD/latest/ucd/. You can see the dates that each was
