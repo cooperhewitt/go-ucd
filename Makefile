@@ -32,8 +32,8 @@ fmt:
 	go fmt cmd/*.go
 
 data:
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go -data http://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt > unicodedata/unicodedata.go
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go -data http://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip > unihan/unihan.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go -data https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt > unicodedata/unicodedata.go
+	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go -data https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip > unihan/unihan.go
 
 build:	bin
 

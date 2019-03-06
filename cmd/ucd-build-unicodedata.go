@@ -14,7 +14,7 @@ import (
 
 func main() {
 
-	unicode_data := flag.String("data", "http://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt", "The URL of your Unicode source data")
+	unicode_data := flag.String("data", "https://unicode.org/Public/UCD/latest/ucd/UnicodeData.txt", "The URL of your Unicode source data")
 
 	flag.Parse()
 
