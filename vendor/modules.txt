@@ -1,7 +1,6 @@
 # github.com/cooperhewitt/go-ucd v0.0.0-20170323200852-c4101e1ef9a6
 github.com/cooperhewitt/go-ucd/unicodedata
 github.com/cooperhewitt/go-ucd/unihan
-github.com/cooperhewitt/go-ucd
 # github.com/davecgh/go-spew v1.1.0
 github.com/davecgh/go-spew/spew
 # github.com/pmezard/go-difflib v1.0.0

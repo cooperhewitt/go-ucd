@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	ucd "github.com/cooperhewitt/go-ucd"
+	"github.com/aaronland/go-ucd"
 	"strings"
 )
 
