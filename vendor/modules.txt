@@ -5,7 +5,9 @@ github.com/cooperhewitt/go-ucd/unihan
 github.com/davecgh/go-spew/spew
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
-# github.com/stretchr/testify v1.3.0
+# github.com/stretchr/testify v1.4.0
 github.com/stretchr/testify/assert
-# github.com/tidwall/pretty v0.0.0-20190325000000-1166b9ac2b65e46a43d8618d30d1554f4652d49b
+# github.com/tidwall/pretty v1.0.0
 github.com/tidwall/pretty
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2
