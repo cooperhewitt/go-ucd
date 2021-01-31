@@ -1,6 +1,10 @@
+VERSION=13.0.0
+UNICODE_DATA=UnicodeData.txt
+UNIHAN_DATA=Unihan.zip
+
 data:
-	go run -mod vendor cmd/ucd-build-unicodedata/main.go -data https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt > unicodedata/unicodedata.go
-	go run -mod vendor cmd/ucd-build-unihan/main.go -data https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip > unihan/unihan.go
+	go run cmd/ucd-build-unicodedata/main.go -data https://www.unicode.org/Public/$(VERSION)/ucd/$(UNICODE_DATA) > unicodedata/unicodedata.go
+	go run cmd/ucd-build-unihan/main.go -data https://www.unicode.org/Public/$(VERSION)/ucd/$(UNIHAN_DATA) > unihan/unihan.go
 
 tools:
 	@make cli
