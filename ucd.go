@@ -2,8 +2,8 @@ package ucd
 
 import (
 	"fmt"
-	unicodedata "github.com/aaronland/go-ucd/unicodedata"
-	unihan "github.com/aaronland/go-ucd/unihan"
+	unicodedata "github.com/aaronland/go-ucd/v13/unicodedata"
+	unihan "github.com/aaronland/go-ucd/v13/unihan"
 	"strings"
 	"unicode/utf8"
 )

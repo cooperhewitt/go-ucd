@@ -11,7 +11,7 @@ _This package was forked from the [cooperhewitt/ucd](https://github.com/cooperhe
 	import(
 		"fmt"
 		"flag"
-		"github.com/aaronland/go-ucd"
+		"github.com/aaronland/go-ucd/v13"
 	)
 
 	func main(){
@@ -122,7 +122,7 @@ To install as an init.d script, copy the example provided, replace the values of
 
 ## Versions
 
-`go-ucd` supports Unicode 12.0 as of March 05, 2019.
+`go-ucd` supports Unicode 13.0 as of MONTH DAY, 2021.
 
 This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
 http://unicode.org/Public/UCD/latest/ucd/.

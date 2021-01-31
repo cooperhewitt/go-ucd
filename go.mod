@@ -1,4 +1,4 @@
-module github.com/aaronland/go-ucd
+module github.com/aaronland/go-ucd/v13
 
 require github.com/tidwall/pretty v1.0.2
 
