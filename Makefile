@@ -1,4 +1,6 @@
-VERSION=13.0.0
+GOMOD=$(shell test -f "go.work" && echo "readonly" || echo "vendor")
+
+VERSION=15.0.0
 UNICODE_DATA=UnicodeData.txt
 UNIHAN_DATA=Unihan.zip
 
@@ -10,6 +12,6 @@ tools:
 	@make cli
 
 cli:
-	go build -mod vendor -o bin/ucd cmd/ucd/main.go
-	go build -mod vendor -o bin/ucd-dump cmd/ucd-dump/main.go
-	go build -mod vendor -o bin/ucd-server cmd/ucd-server/main.go
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd cmd/ucd/main.go
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd-dump cmd/ucd-dump/main.go
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd-server cmd/ucd-server/main.go

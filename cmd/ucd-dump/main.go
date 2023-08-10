@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/aaronland/go-ucd/v13/unicodedata"
-	"github.com/aaronland/go-ucd/v13/unihan"
-	"github.com/tidwall/pretty"
 	"log"
 	"os"
+
+	"github.com/aaronland/go-ucd/v15/unicodedata"
+	"github.com/aaronland/go-ucd/v15/unihan"
+	"github.com/tidwall/pretty"	
 )
 
 func main() {

@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/aaronland/go-ucd/v13"
 	"strings"
+
+	"github.com/aaronland/go-ucd/v15"	
 )
 
 func main() {
