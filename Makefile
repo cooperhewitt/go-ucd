@@ -1,27 +1,17 @@
-CWD=$(shell pwd)
-GOPATH := $(CWD)/vendor:$(CWD)
+GOMOD=$(shell test -f "go.work" && echo "readonly" || echo "vendor")
 
-prep:
-	if test -d pkg; then rm -rf pkg; fi
+VERSION=15.0.0
+UNICODE_DATA=UnicodeData.txt
+UNIHAN_DATA=Unihan.zip
 
-self:	prep
-	if test -d src/github.com/cooperhewitt/go-ucd; then rm -rf src/github.com/cooperhewitt/go-ucd; fi
-	mkdir -p src/github.com/cooperhewitt/go-ucd/unicodedata
-	mkdir -p src/github.com/cooperhewitt/go-ucd/unihan
-	cp ucd.go src/github.com/cooperhewitt/go-ucd/
-	cp unicodedata/unicodedata.go src/github.com/cooperhewitt/go-ucd/unicodedata/
-	cp unihan/unihan.go src/github.com/cooperhewitt/go-ucd/unihan/
+data:
+	go run cmd/ucd-build-unicodedata/main.go -data https://www.unicode.org/Public/$(VERSION)/ucd/$(UNICODE_DATA) > unicodedata/unicodedata.go
+	go run cmd/ucd-build-unihan/main.go -data https://www.unicode.org/Public/$(VERSION)/ucd/$(UNIHAN_DATA) > unihan/unihan.go
 
-fmt:
-	go fmt *.go
-	go fmt unicodedata/*.go
-	go fmt unihan/*.go
-	go fmt cmd/*.go
+tools:
+	@make cli
 
-data: 	
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unicodedata.go > unicodedata/unicodedata.go
-	@GOPATH=$(GOPATH) go run cmd/ucd-build-unihan.go > unihan/unihan.go
-
-build:	fmt self
-	@GOPATH=$(GOPATH) go build -o bin/ucd cmd/ucd.go
-	@GOPATH=$(GOPATH) go build -o bin/ucd-server cmd/ucd-server.go
+cli:
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd cmd/ucd/main.go
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd-dump cmd/ucd-dump/main.go
+	go build -mod $(GOMOD) -ldflags="-s -w" -o bin/ucd-server cmd/ucd-server/main.go

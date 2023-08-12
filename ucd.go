@@ -2,10 +2,11 @@ package ucd
 
 import (
 	"fmt"
-	unicodedata "github.com/cooperhewitt/go-ucd/unicodedata"
-	unihan "github.com/cooperhewitt/go-ucd/unihan"
 	"strings"
 	"unicode/utf8"
+
+	unicodedata "github.com/aaronland/go-ucd/v15/unicodedata"
+	unihan "github.com/aaronland/go-ucd/v15/unihan"	
 )
 
 type UCDName struct {

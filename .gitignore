@@ -1,4 +1,5 @@
 *~
 pkg
 src
-*.sw[op]
+bin/ucd*
+.DS_Store
