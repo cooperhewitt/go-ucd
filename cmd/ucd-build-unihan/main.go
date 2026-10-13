@@ -6,7 +6,8 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
+
 	"log"
 	"net/http"
 	"strings"
@@ -26,7 +27,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	body, err := ioutil.ReadAll(rsp.Body)
+	body, err := io.ReadAll(rsp.Body)
 
 	reader, err := zip.NewReader(bytes.NewReader(body), rsp.ContentLength)
 

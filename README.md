@@ -11,7 +11,7 @@ _This package was forked from the [cooperhewitt/ucd](https://github.com/cooperhe
 	import(
 		"fmt"
 		"flag"
-		"github.com/aaronland/go-ucd/v13"
+		"github.com/aaronland/go-ucd/v15"
 	)
 
 	func main(){
@@ -122,7 +122,7 @@ To install as an init.d script, copy the example provided, replace the values of
 
 ## Versions
 
-`go-ucd` supports Unicode 13.0 as of February 16, 2021 and requires Go [1.16](https://golang.org/doc/go1.16) or higher to compile.
+`go-ucd` supports Unicode 15.0 as of August 09, 2023 and requires Go [1.21](https://golang.org/dl) or higher to compile.
 
 This package exports data defined in the `UnicodeData.txt` and the `Unihan.zip`. Both are available from
 http://unicode.org/Public/UCD/latest/ucd/.

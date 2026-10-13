@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/aaronland/go-ucd/v15"	
+	"github.com/aaronland/go-ucd/v17"
 )
 
 func main() {
@@ -15,9 +15,9 @@ func main() {
 	args := flag.Args()
 	str := strings.Join(args, " ")
 
-	chars := strings.Split(str, "")
+	chars := strings.SplitSeq(str, "")
 
-	for _, char := range chars {
+	for char := range chars {
 		n := ucd.Name(char)
 		fmt.Println(n)
 	}

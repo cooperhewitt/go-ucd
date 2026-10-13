@@ -11,6 +11,12 @@ func TestName(t *testing.T) {
 		"🪺": "NEST WITH EGGS",
 		// Unicode 15.0
 		"🪿": "GOOSE",
+		// Unicode 16
+		"🫩": "FACE WITH BAGS UNDER EYES",
+		// Unicode 17
+		"🫍": "ORCA",
+		// Unicode 17 Unihan
+		"方言字": "A SQUARE, RECTANGLE; A REGION; LOCAL",
 	}
 
 	for raw, expected := range tests {

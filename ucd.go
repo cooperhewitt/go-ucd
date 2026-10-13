@@ -5,8 +5,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	unicodedata "github.com/aaronland/go-ucd/v15/unicodedata"
-	unihan "github.com/aaronland/go-ucd/v15/unihan"	
+	unicodedata "github.com/aaronland/go-ucd/v17/unicodedata"
+	unihan "github.com/aaronland/go-ucd/v17/unihan"
 )
 
 type UCDName struct {

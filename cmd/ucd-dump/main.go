@@ -5,11 +5,12 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"maps"
 	"os"
 
-	"github.com/aaronland/go-ucd/v15/unicodedata"
-	"github.com/aaronland/go-ucd/v15/unihan"
-	"github.com/tidwall/pretty"	
+	"github.com/aaronland/go-ucd/v17/unicodedata"
+	"github.com/aaronland/go-ucd/v17/unihan"
+	"github.com/tidwall/pretty"
 )
 
 func main() {
@@ -26,9 +27,7 @@ func main() {
 
 		// sorting?
 
-		for k, v := range unihan.UCDHan {
-			dump[k] = v
-		}
+		maps.Copy(dump, unihan.UCDHan)
 	}
 
 	body, err := json.Marshal(dump)

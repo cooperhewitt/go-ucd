@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	ucd "github.com/aaronland/go-ucd/v15"	
+	ucd "github.com/aaronland/go-ucd/v17"
 )
 
 type UCDResponse struct {
